@@ -1,0 +1,17 @@
+import { foodModel } from "../../models/food-model.js"
+
+
+export const createFood = async (req, res) => {
+    const body = req.body
+    const newFood = await foodModel.create({
+        foodName: body.foodName,
+        price: body.price,
+        image: body.image,
+        ingredient: body.ingredient,
+        category: body.category,
+    });
+    res.status(201).json({
+        message: "amjilttai",
+        food: newFood,
+    });
+}
