@@ -1,10 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
+import dns from "node:dns";
 import cors from "cors";
 import { categoryRouter } from "./routes/category.js";
 import { foodRouter } from "./routes/food.js";
 import { orderRouter } from "./routes/order.js";
 import { userRouter } from "./routes/user.js";
+
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 const port = 8000;
 const app = express();
