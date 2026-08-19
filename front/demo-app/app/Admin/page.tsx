@@ -44,7 +44,7 @@ export default function AdminPage() {
     setCategoryName("");
   };
 
-  const deleteCategory = async(categoryId) => {
+  const deleteCategory = async(categoryId: string) => {
     const res = await fetch("http://localhost:8000/category", {
       method: "DELETE",
       headers: {
@@ -62,7 +62,7 @@ export default function AdminPage() {
   }, []);
 
   return (
-    <div className="w-full h-screen max-h-full max-w-360 flex flex-row bg-gray-200">
+    <div className="w-full h-screen max-h-full mx-auto max-w-360 flex flex-row bg-gray-200">
       <div className="w-full max-h-full max-w-50 bg-[#FFFFFF] justify-center">
         <div className="flex flex-col mt-10 items-center justify-center place-content-center">
           <div className="flex flex-row gap-2">
