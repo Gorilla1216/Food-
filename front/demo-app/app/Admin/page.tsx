@@ -1,11 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-type CategoryType = {
-  categoryName: String;
-  _id: String;
-};
-
+import { AdminFoodList } from "../_components/AdminFoodList";
 import { Button } from "@base-ui/react";
 import { HandPlatter } from "lucide-react";
 import { TextAlignJustify } from "lucide-react";
@@ -20,14 +16,21 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+type CategoryType = {
+  categoryName: String;
+  _id: String;
+  foodCount: number;
+};
 
 export default function AdminPage() {
   const [categories, setCategories] = useState<CategoryType[]>([]);
   const [categoryName, setCategoryName] = useState("");
+  const [totalFoods, setTotalFoods] = useState(0);
   const getCategory = async () => {
     const res = await fetch("http://localhost:8000/category");
     const data = await res.json();
-    setCategories(data);
+    setCategories(data.categories);
+    setTotalFoods(data.allFoodCount);
   };
 
   const createCategory = async () => {
@@ -44,7 +47,7 @@ export default function AdminPage() {
     setCategoryName("");
   };
 
-  const deleteCategory = async(categoryId: string) => {
+  const deleteCategory = async (categoryId: string) => {
     const res = await fetch("http://localhost:8000/category", {
       method: "DELETE",
       headers: {
@@ -99,7 +102,7 @@ export default function AdminPage() {
           />
           <div className="flex flex-col h-44 mt-6 rounded-2xl bg-[#FFFFFF]">
             <div className="text-[#09090B] text-2xl font-semibold ml-6 mt-6">
-              Dishes category
+              Dishes category <span>{totalFoods}</span>
             </div>
             <div className="flex flex-wrap mt-2 ml-5 gap-2 items-center">
               {categories.map((category, index) => (
@@ -109,9 +112,14 @@ export default function AdminPage() {
                 >
                   {category.categoryName}
                   <div className="text-white bg-black rounded-full w-9 h-5">
-                    20
+                    {category.foodCount}
                   </div>
-                  <div onClick={() => deleteCategory(category._id)} className=" border border-gray-600 rounded-full px-2 text-white bg-black">x</div>
+                  <div
+                    onClick={() => deleteCategory(category._id)}
+                    className=" border border-gray-600 rounded-full px-2 text-white bg-black"
+                  >
+                    x
+                  </div>
                 </button>
               ))}
 
@@ -137,7 +145,10 @@ export default function AdminPage() {
                       placeholder="Type category name"
                       className="w-full h-11"
                     />
-                    <button onClick={() => createCategory()} className="flex justify-center w-30 h-5 mt-4 rounded bg-[#18181B] text-[#FAFAFA] text-sm ">
+                    <button
+                      onClick={() => createCategory()}
+                      className="flex justify-center w-30 h-5 mt-4 rounded bg-[#18181B] text-[#FAFAFA] text-sm "
+                    >
                       Add new category
                     </button>
                   </div>
@@ -145,22 +156,10 @@ export default function AdminPage() {
               </Dialog>
             </div>
           </div>
-          {/* <div className="w-full max-w-292 h-screen mx-auto mt-6 flex flex-row">
-            <div className="w-full max-w-292 h-19 flex flex-row bg-[#FFFFFF] justify-between rounded-lg">
-              <div className="w-full max-w-50 ml-4 mt-3">
-                <span className="text-xl font-bold text-[#09090B]">Orders</span>
-                <p className="text-base font-medium text-[#71717A]">1 items</p>
-              </div>
-              <div className="flex flex-row gap-4">
-                <div className="">Date</div>
-                <div>Delivery status</div>
-              </div>
-            </div>
-            <div className="mt-4">
-              <input type="checkbox" name="" id="" />
-            </div>
-          </div> */}
         </div>
+      </div>
+      <div>
+        <AdminFoodList />
       </div>
     </div>
   );
