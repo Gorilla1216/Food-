@@ -1,7 +1,16 @@
-export const AdminFoodList = () => {
-    <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Foods</h1>
-        <p className="mt-1 text-base text-neutral-500">Get, create, and update foods</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat tenetur quo, velit amet aliquam officia illum molestiae sed dolorem praesentium fuga culpa libero voluptate in necessitatibus modi nisi vel id.</p>
+import { CategoryType } from "../Admin/page";
+
+export const AdminFoodList = ({ category }: { category: CategoryType }) => {
+  return (
+    <div className="flex flex-col flex-wrap mt-2 gap-2 bg-[#FFFFFF] rounded-2xl">
+      <h1 className="text-2xl font-semibold tracking-tight ml-6">
+        {category.categoryName} <span>{category.foodCount}</span>
+      </h1>
+      <div className="grid grid-cols-4 gap-4 ml-6">
+        <div className="">
+
+        </div>
+      </div>
     </div>
-}
+  );
+};

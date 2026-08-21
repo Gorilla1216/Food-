@@ -16,10 +16,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-type CategoryType = {
+import { OrdersTable } from "../_components/OrderTable";
+export type CategoryType = {
   categoryName: String;
   _id: String;
   foodCount: number;
+
+
 };
 
 export default function AdminPage() {
@@ -156,10 +159,10 @@ export default function AdminPage() {
               </Dialog>
             </div>
           </div>
+        {categories.map((category) => {
+          return <AdminFoodList key={category._id} category={category}/>
+        })}
         </div>
-      </div>
-      <div>
-        <AdminFoodList />
       </div>
     </div>
   );
