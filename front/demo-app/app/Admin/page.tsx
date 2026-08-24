@@ -68,7 +68,7 @@ export default function AdminPage() {
   }, []);
 
   return (
-    <div className="w-full h-screen max-h-full mx-auto max-w-360 flex flex-row bg-gray-200">
+    <div className="w-full mx-auto max-w-360 flex flex-row h-full">
       <div className="w-full max-h-full max-w-50 bg-[#FFFFFF] justify-center">
         <div className="flex flex-col mt-10 items-center justify-center place-content-center">
           <div className="flex flex-row gap-2">
@@ -94,7 +94,7 @@ export default function AdminPage() {
           </div>
         </div>
       </div>
-      <div className="w-full max-h-full max-w-310 flex flex-col">
+      <div className="w-full max-w-310 max-h-full bg-gray-200 flex flex-col ">
         <div className="w-full max-w-292 mx-auto">
           <Image
             src="/Admin.jpg"
