@@ -132,7 +132,7 @@ export default function AdminPage() {
                     +
                   </div>
                 </DialogTrigger>
-                <DialogContent className="max-h-68 h-full max-w-115 w-full">
+                <DialogContent className="max-h-66 h-full max-w-115 w-full">
                   <DialogHeader>
                     <DialogTitle className="text-[#09090B] text-3xl font-semibold ">
                       Add new category

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Image } from "lucide-react";
 import { CategoryType } from "../Admin/page";
 import {
   Dialog,
@@ -36,21 +37,50 @@ export const AdminFoodList = ({ category }: { category: CategoryType }) => {
                 +
               </div>
             </DialogTrigger>
-            <div className="flex ">
-              Add new Dish to {category.categoryName}
-            </div>
-            <DialogContent className="max-h-68 h-full max-w-115 w-full">
-              <DialogHeader>
-                <DialogTitle className="text-[#09090B] text-xl font-semibold ">
-                  <div>
-                    Add new Dish to {category.categoryName}
+            <div className="flex ">Add new Dish to {category.categoryName}</div>
+            <DialogContent className="max-h-150 h-full w-115 max-w-[full] sm:max-w-115">
+              <div className="">
+                <DialogHeader>
+                  <DialogTitle className="text-[#09090B] text-xl font-semibold ">
+                    <div>Add new Dish to {category.categoryName}</div>
+                  </DialogTitle>
+                  <div className="mt-6 text-[#09090B] text-lg flex flex-col">
+                    <div className="flex mt-6 gap-2">
+                      <div className="font-medium">
+                        Food name
+                        <input
+                          type="text"
+                          placeholder="Type food name"
+                          className="border-2 rounded-lg"
+                        />
+                      </div>
+                      <div className="font-medium ">
+                        Food price
+                        <input
+                          type="number"
+                          placeholder="Enter price"
+                          className="border-2 rounded-lg"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col font-medium mt-6 ">
+                      Ingredients
+                      <textarea
+                        placeholder="List ingredients"
+                        className="border-2 rounded-lg h-22"
+                      ></textarea>
+                    </div>
+                    <div className="flex flex-col mt-6">
+                      Food image
+                      <input
+                        type="text"
+                        placeholder="Choose a file or drag & drop it here"
+                        className="border border-dashed bg-[#2563EB0D] h-45 text-center"
+                      />
+                    </div>
                   </div>
-                </DialogTitle>
-                <DialogDescription className="mt-6 text-[#09090B] text-lg">
-                  Category name
-                </DialogDescription>
-              </DialogHeader>
-              <div className="flex flex-col"></div>
+                </DialogHeader>
+              </div>
             </DialogContent>
           </Dialog>
         </div>
