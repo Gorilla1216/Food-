@@ -78,6 +78,7 @@ export const AdminFoodList = ({ category }: { category: CategoryType }) => {
                         className="border border-dashed bg-[#2563EB0D] h-45 text-center"
                       />
                     </div>
+                    <button className="mt-4 w-20 h-10 bg-[#18181B] rounded-lg text-[#FAFAFA] ">Add Dish</button>
                   </div>
                 </DialogHeader>
               </div>
