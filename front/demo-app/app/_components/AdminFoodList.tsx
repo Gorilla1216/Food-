@@ -38,7 +38,7 @@ export const AdminFoodList = ({ category }: { category: CategoryType }) => {
               </div>
             </DialogTrigger>
             <div className="flex ">Add new Dish to {category.categoryName}</div>
-            <DialogContent className="max-h-150 h-full w-115 max-w-[full] sm:max-w-115">
+            <DialogContent className="max-h-150 h-full w-150 max-w-[full] sm:max-w-150">
               <div className="">
                 <DialogHeader>
                   <DialogTitle className="text-[#09090B] text-xl font-semibold ">
