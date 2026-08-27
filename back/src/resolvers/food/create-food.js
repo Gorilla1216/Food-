@@ -7,7 +7,7 @@ export const createFood = async (req, res) => {
         foodName: body.foodName,
         price: body.price,
         image: body.image,
-        ingredient: body.ingredient,
+        ingredients: body.ingredients,
         category: body.category,
     });
     res.status(201).json({

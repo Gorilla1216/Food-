@@ -21,8 +21,6 @@ export type CategoryType = {
   categoryName: String;
   _id: String;
   foodCount: number;
-
-
 };
 
 export default function AdminPage() {
@@ -82,9 +80,10 @@ export default function AdminPage() {
           </div>
           <div className="flex flex-row mt-10 gap-2 items-center">
             <TextAlignJustify />
-            <span className="text-lg font-medium text-[#09090B] items-center">
+
+            <button className="text-lg font-medium text-[#09090B] items-center">
               Food menu
-            </span>
+            </button>
           </div>
           <div className="items-center">
             <Button className="flex flex-row mt-6 rounded-2xl w-38 h-10 text-[#FAFAFA] bg-black gap-2 justify-center">
@@ -159,9 +158,11 @@ export default function AdminPage() {
               </Dialog>
             </div>
           </div>
-        {categories.map((category) => {
-          return <AdminFoodList key={category._id} category={category}/>
-        })}
+          <div className="flex flex-col flex-wrap">
+            {categories.map((category: any) => {
+              return <AdminFoodList key={category._id} category={category} />;
+            })}
+          </div>
         </div>
       </div>
     </div>
