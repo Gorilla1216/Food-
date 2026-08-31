@@ -6,6 +6,7 @@ import { categoryRouter } from "./routes/category.js";
 import { foodRouter } from "./routes/food.js";
 import { orderRouter } from "./routes/order.js";
 import { userRouter } from "./routes/user.js";
+import "dotenv/config";
 
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
@@ -19,11 +20,7 @@ app.use("/food", foodRouter);
 app.use("/order", orderRouter);
 app.use("/user", userRouter);
 
-mongoose
-  .connect(
-    "mongodb+srv://dligro0_db_user:30TOlNRXGQDtJ5ZG@cluster0.ml4ckrh.mongodb.net/",
-  )
-  .then(() => console.log("Connected"));
+mongoose.connect(process.env.MONGODB_URI).then(() => console.log("Connected"));
 app.listen(port, () => {
   console.log(`server is running on http://localhost:${port}`);
 });

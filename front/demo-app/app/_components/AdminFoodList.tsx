@@ -70,7 +70,7 @@ export const AdminFoodList = ({
           body: formData,
         },
       );
-      const data = await response.json(); 
+      const data = await response.json();
       console.log(data);
       return data.secure_url;
     } catch (error) {
@@ -202,9 +202,9 @@ export const AdminFoodList = ({
                 className="max-h-60 h-full max-w-67 w-full flex flex-col items-center justify-center outline-2 outline-[#E4E4E7] rounded-2xl"
               >
                 <div className="max-h-33 h-full max-w-58 w-full relative overflow-hidden rounded-2xl ">
-                  {food?.image ? ( 
+                  {food?.image ? (
                     <Image
-                      src={food?.image.trim()} 
+                      src={food?.image.trim()}
                       alt={food.foodName || "Food image"}
                       width={240}
                       height={130}
@@ -215,8 +215,7 @@ export const AdminFoodList = ({
                       No Image
                     </div>
                   )}
-                 
-                 
+
                 </div>
                 <div className="flex justify-between w-full px-4 mt-2">
                   <span className="text-base text-[#EF4444] font-medium">
@@ -240,3 +239,4 @@ export const AdminFoodList = ({
     </div>
   );
 };
+
