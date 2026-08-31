@@ -7,6 +7,7 @@ import { HandPlatter } from "lucide-react";
 import { TextAlignJustify } from "lucide-react";
 import { Truck } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { json } from "stream/consumers";
 import {
   Dialog,
@@ -19,7 +20,7 @@ import {
 import { OrdersTable } from "../_components/OrderTable";
 export type CategoryType = {
   categoryName: String;
-  _id: String;
+  _id: string;
   foodCount: number;
 };
 
@@ -79,14 +80,16 @@ export default function AdminPage() {
             </div>
           </div>
           <div className="flex flex-row mt-10 gap-2 items-center">
-            <TextAlignJustify />
-
-            <button className="text-lg font-medium text-[#09090B] items-center">
+            <Link
+              href="/food-menu"
+              className="flex text-center justify-center text-lg rounded-2xl font-medium text-[#FAFAFA] bg-black items-center w-38 h-10"
+            >
+              <TextAlignJustify />
               Food menu
-            </button>
+            </Link>
           </div>
           <div className="items-center">
-            <Button className="flex flex-row mt-6 rounded-2xl w-38 h-10 text-[#FAFAFA] bg-black gap-2 justify-center">
+            <Button className="flex flex-row mt-4 w-38 h-10 text-[#09090B] gap-2 justify-center">
               <Truck className="mt-2 " />
               <span className="mt-2 text-base">Orders</span>
             </Button>
@@ -160,7 +163,7 @@ export default function AdminPage() {
           </div>
           <div className="flex flex-col flex-wrap">
             {categories.map((category: any) => {
-              return <AdminFoodList key={category._id} category={category} />;
+              return <AdminFoodList key={category._id} category={category} getCategory={() => getCategory()}/>;
             })}
           </div>
         </div>
